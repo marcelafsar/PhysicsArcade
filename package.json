@@ -1,0 +1,21 @@
+{
+  "name": "physics-arcade",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Physics Arcade: a free-body-diagram game built around the teacher's 152 original scenarios.",
+  "type": "module",
+  "scripts": {
+    "extract": "node tools/extract-teacher.mjs",
+    "dev": "vite",
+    "build": "node tools/extract-teacher.mjs && vite build && node tools/postbuild.mjs",
+    "test": "node tests/run-all.mjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.64.1",
+    "vite": "^6.4.5",
+    "vite-plugin-singlefile": "^2.3.4"
+  },
+  "dependencies": {
+    "pixi.js": "^8.22.0"
+  }
+}

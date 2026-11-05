@@ -1,0 +1,583 @@
+{
+  "when": "2026-11-05T01:11:53.113Z",
+  "total": 96,
+  "failed": 0,
+  "results": [
+    {
+      "group": "1. Teacher content is untouched",
+      "name": "src/teacher/fbd-original.js is byte-identical to the teacher script",
+      "pass": true,
+      "detail": "sha256 f1bd669b7c1cfd17"
+    },
+    {
+      "group": "1. Teacher content is untouched",
+      "name": "built game embeds the teacher script byte-for-byte",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "group": "1. Teacher content is untouched",
+      "name": "teacher original matches its backup copy",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "group": "1. Teacher content is untouched",
+      "name": "scenario counts are 52 / 50 / 50 (152 total)",
+      "pass": true,
+      "detail": "52/50/50"
+    },
+    {
+      "group": "1. Teacher content is untouched",
+      "name": "every scenario (ids, text, givens, forces, answers, hints, explanations) equals the original at runtime",
+      "pass": true,
+      "detail": "152 identical"
+    },
+    {
+      "group": "1. Teacher content is untouched",
+      "name": "scenario ids are unique",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "group": "2. Answer keys and grading",
+      "name": "all 152 correct answer keys pass all three graders",
+      "pass": true,
+      "detail": "152/152"
+    },
+    {
+      "group": "2. Answer keys and grading",
+      "name": "the engine's own self-test reports no failing keys",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "group": "2. Answer keys and grading",
+      "name": "wrong answers (missing, reversed, wrong size, extra force, unchecked force) are rejected for every scenario",
+      "pass": true,
+      "detail": "760 wrong answers rejected"
+    },
+    {
+      "group": "3. Menu, levels, settings",
+      "name": "menu is the first screen; game hidden",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "group": "3. Menu, levels, settings",
+      "name": "three level tags, all enabled",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "group": "3. Menu, levels, settings",
+      "name": "Level 3 opens immediately from the menu",
+      "pass": true,
+      "detail": "{\"level\":3,\"scLevel\":3,\"game\":true,\"tab\":\"3\"}"
+    },
+    {
+      "group": "3. Menu, levels, settings",
+      "name": "Level 1 opens immediately from the menu",
+      "pass": true,
+      "detail": "{\"level\":1,\"scLevel\":1,\"game\":true,\"tab\":\"1\"}"
+    },
+    {
+      "group": "3. Menu, levels, settings",
+      "name": "Level 2 opens immediately from the menu",
+      "pass": true,
+      "detail": "{\"level\":2,\"scLevel\":2,\"game\":true,\"tab\":\"2\"}"
+    },
+    {
+      "group": "3. Menu, levels, settings",
+      "name": "switching levels with the in-game tabs works",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "group": "3. Menu, levels, settings",
+      "name": "Home → Continue resumes the same level",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "group": "3. Menu, levels, settings",
+      "name": "theme toggle switches light/dark",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "group": "3. Menu, levels, settings",
+      "name": "settings dialog opens from the game",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "group": "3. Menu, levels, settings",
+      "name": "setting works: sfxOff",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "group": "3. Menu, levels, settings",
+      "name": "setting works: sfxOn",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "group": "3. Menu, levels, settings",
+      "name": "setting works: vol",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "group": "3. Menu, levels, settings",
+      "name": "setting works: music",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "group": "3. Menu, levels, settings",
+      "name": "setting works: cine",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "group": "3. Menu, levels, settings",
+      "name": "setting works: labels",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "group": "3. Menu, levels, settings",
+      "name": "setting works: reduce",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "group": "3. Menu, levels, settings",
+      "name": "setting works: contrast",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "group": "3. Menu, levels, settings",
+      "name": "setting works: classic",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "group": "3. Menu, levels, settings",
+      "name": "setting works: pixiBack",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "group": "3. Menu, levels, settings",
+      "name": "setting works: themeDark",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "group": "3. Menu, levels, settings",
+      "name": "setting works: themeLight",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "group": "3. Menu, levels, settings",
+      "name": "Escape closes settings",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "group": "3. Menu, levels, settings",
+      "name": "menu sound button toggles mute",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "group": "4. Play-through: elevator arriving at the lobby (mouse)",
+      "name": "mouse: an incomplete answer gets a hint, not a pass",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "group": "4. Play-through: elevator arriving at the lobby (mouse)",
+      "name": "mouse: step 1 accepted (identify)",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "group": "4. Play-through: elevator arriving at the lobby (mouse)",
+      "name": "mouse: two arrows drawn and labelled on the diagram",
+      "pass": true,
+      "detail": "[[\"FN\",90,3],[\"Fg\",270,3]]"
+    },
+    {
+      "group": "4. Play-through: elevator arriving at the lobby (mouse)",
+      "name": "mouse: step 2 accepted (directions)",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "group": "4. Play-through: elevator arriving at the lobby (mouse)",
+      "name": "mouse: step 3 accepted — scenario solved",
+      "pass": true,
+      "detail": "Now it's correct.To slow your downward motion, the net force must point up, so FN > Fg. The direction of the net force m"
+    },
+    {
+      "group": "4. Play-through: elevator arriving at the lobby (mouse)",
+      "name": "mouse: green check stamp shown",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "group": "4. Play-through: elevator arriving at the lobby (mouse)",
+      "name": "mouse: the retry means it does not count toward mastery",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "group": "4. Play-through: elevator arriving at the lobby (mouse)",
+      "name": "outcome animation starts after the correct answer and hides the arrow overlay",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "group": "4. Play-through: elevator arriving at the lobby (mouse)",
+      "name": "elevator arriving at the lobby: velocity DOWN, acceleration UP",
+      "pass": true,
+      "detail": "VelocitydownAccelerationup · slowing down"
+    },
+    {
+      "group": "4. Play-through: elevator arriving at the lobby (mouse)",
+      "name": "slow-motion toggles",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "group": "4. Play-through: elevator arriving at the lobby (mouse)",
+      "name": "replay restarts the animation",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "group": "4. Play-through: elevator arriving at the lobby (mouse)",
+      "name": "\"Show diagram\" ends the animation and restores the arrows",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "group": "4. Play-through: elevator arriving at the lobby (mouse)",
+      "name": "\"Watch motion\" replay button is offered afterwards",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "group": "4. Play-through: elevator arriving at the lobby (mouse)",
+      "name": "\"Watch motion\" replays",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "group": "4. Play-through: elevator arriving at the lobby (mouse)",
+      "name": "\"Next situation\" loads a new situation",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "group": "5. Elevator trio — motion vs. acceleration",
+      "name": "elev-up-speed: velocity up, acceleration up",
+      "pass": true,
+      "detail": "VelocityupAccelerationup · speeding up"
+    },
+    {
+      "group": "5. Elevator trio — motion vs. acceleration",
+      "name": "elev-up-speed: building scrolls down past the car (car moving up)",
+      "pass": true,
+      "detail": "43"
+    },
+    {
+      "group": "5. Elevator trio — motion vs. acceleration",
+      "name": "elev-down-slow: velocity down, acceleration up",
+      "pass": true,
+      "detail": "VelocitydownAccelerationup · slowing down"
+    },
+    {
+      "group": "5. Elevator trio — motion vs. acceleration",
+      "name": "elev-down-slow: building scrolls up past the car (car moving down)",
+      "pass": true,
+      "detail": "-250"
+    },
+    {
+      "group": "5. Elevator trio — motion vs. acceleration",
+      "name": "elev-down-speed: velocity down, acceleration down",
+      "pass": true,
+      "detail": "VelocitydownAccelerationdown · speeding up"
+    },
+    {
+      "group": "5. Elevator trio — motion vs. acceleration",
+      "name": "elev-down-speed: building scrolls up past the car (car moving down)",
+      "pass": true,
+      "detail": "-43"
+    },
+    {
+      "group": "6. Touch and keyboard input",
+      "name": "touch: an incomplete answer gets a hint, not a pass",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "group": "6. Touch and keyboard input",
+      "name": "touch: step 1 accepted (identify)",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "group": "6. Touch and keyboard input",
+      "name": "touch: two arrows drawn and labelled on the diagram",
+      "pass": true,
+      "detail": "[[\"FN\",90,3],[\"Fg\",270,3]]"
+    },
+    {
+      "group": "6. Touch and keyboard input",
+      "name": "touch: step 2 accepted (directions)",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "group": "6. Touch and keyboard input",
+      "name": "touch: step 3 accepted — scenario solved",
+      "pass": true,
+      "detail": "Now it's correct.To slow your downward motion, the net force must point up, so FN > Fg. The direction of the net force m"
+    },
+    {
+      "group": "6. Touch and keyboard input",
+      "name": "touch: green check stamp shown",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "group": "6. Touch and keyboard input",
+      "name": "touch: the retry means it does not count toward mastery",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "group": "6. Touch and keyboard input",
+      "name": "touch: no page errors",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "group": "6. Touch and keyboard input",
+      "name": "keyboard: arrow key draws an arrow and opens the label picker",
+      "pass": true,
+      "detail": "{\"step\":2,\"phase\":\"draw\",\"n\":1,\"active\":\"\",\"status\":\"Keyboard drawing: arrow keys draw, L labels, [ and ] select, Delete removes.\",\"cls\":\"booted art-pixi\"}"
+    },
+    {
+      "group": "6. Touch and keyboard input",
+      "name": "keyboard: Enter on a picker choice labels the arrow (without submitting)",
+      "pass": true,
+      "detail": "Fg"
+    },
+    {
+      "group": "6. Touch and keyboard input",
+      "name": "keyboard: Q / Shift+Q rotate by 1° / 5°",
+      "pass": true,
+      "detail": "276"
+    },
+    {
+      "group": "6. Touch and keyboard input",
+      "name": "keyboard: Delete removes the selected arrow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "group": "7. Viewports, themes, rendering",
+      "name": "desktop-light: renders the illustrated scene, no horizontal scroll (menu + game)",
+      "pass": true,
+      "detail": "menu true, game true"
+    },
+    {
+      "group": "7. Viewports, themes, rendering",
+      "name": "desktop-light: no clipped buttons or headings",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "group": "7. Viewports, themes, rendering",
+      "name": "desktop-light: no console errors or failed requests",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "group": "7. Viewports, themes, rendering",
+      "name": "laptop-light: renders the illustrated scene, no horizontal scroll (menu + game)",
+      "pass": true,
+      "detail": "menu true, game true"
+    },
+    {
+      "group": "7. Viewports, themes, rendering",
+      "name": "laptop-light: no clipped buttons or headings",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "group": "7. Viewports, themes, rendering",
+      "name": "laptop-light: no console errors or failed requests",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "group": "7. Viewports, themes, rendering",
+      "name": "tablet-light: renders the illustrated scene, no horizontal scroll (menu + game)",
+      "pass": true,
+      "detail": "menu true, game true"
+    },
+    {
+      "group": "7. Viewports, themes, rendering",
+      "name": "tablet-light: no clipped buttons or headings",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "group": "7. Viewports, themes, rendering",
+      "name": "tablet-light: no console errors or failed requests",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "group": "7. Viewports, themes, rendering",
+      "name": "phone-light: renders the illustrated scene, no horizontal scroll (menu + game)",
+      "pass": true,
+      "detail": "menu true, game true"
+    },
+    {
+      "group": "7. Viewports, themes, rendering",
+      "name": "phone-light: no clipped buttons or headings",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "group": "7. Viewports, themes, rendering",
+      "name": "phone-light: no console errors or failed requests",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "group": "7. Viewports, themes, rendering",
+      "name": "desktop-dark: renders the illustrated scene, no horizontal scroll (menu + game)",
+      "pass": true,
+      "detail": "menu true, game true"
+    },
+    {
+      "group": "7. Viewports, themes, rendering",
+      "name": "desktop-dark: no clipped buttons or headings",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "group": "7. Viewports, themes, rendering",
+      "name": "desktop-dark: no console errors or failed requests",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "group": "7. Viewports, themes, rendering",
+      "name": "laptop-dark: renders the illustrated scene, no horizontal scroll (menu + game)",
+      "pass": true,
+      "detail": "menu true, game true"
+    },
+    {
+      "group": "7. Viewports, themes, rendering",
+      "name": "laptop-dark: no clipped buttons or headings",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "group": "7. Viewports, themes, rendering",
+      "name": "laptop-dark: no console errors or failed requests",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "group": "7. Viewports, themes, rendering",
+      "name": "tablet-dark: renders the illustrated scene, no horizontal scroll (menu + game)",
+      "pass": true,
+      "detail": "menu true, game true"
+    },
+    {
+      "group": "7. Viewports, themes, rendering",
+      "name": "tablet-dark: no clipped buttons or headings",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "group": "7. Viewports, themes, rendering",
+      "name": "tablet-dark: no console errors or failed requests",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "group": "7. Viewports, themes, rendering",
+      "name": "phone-dark: renders the illustrated scene, no horizontal scroll (menu + game)",
+      "pass": true,
+      "detail": "menu true, game true"
+    },
+    {
+      "group": "7. Viewports, themes, rendering",
+      "name": "phone-dark: no clipped buttons or headings",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "group": "7. Viewports, themes, rendering",
+      "name": "phone-dark: no console errors or failed requests",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "group": "7. Viewports, themes, rendering",
+      "name": "all 152 scenes compose with the new art (no fallback to the old drawings)",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "group": "7. Viewports, themes, rendering",
+      "name": "main page: no console errors during the whole run",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "group": "8. Offline single-file build",
+      "name": "opens from a plain local file with all network access blocked",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "group": "8. Offline single-file build",
+      "name": "offline: fonts loaded from the bundle",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "group": "8. Offline single-file build",
+      "name": "offline: no console errors",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "group": "9. Performance (headless software rendering — a lower bound for real GPUs)",
+      "name": "outcome animation frame rate measured",
+      "pass": true,
+      "detail": "60.5 fps (software GL)"
+    },
+    {
+      "group": "9. Performance (headless software rendering — a lower bound for real GPUs)",
+      "name": "scene switch time",
+      "pass": true,
+      "detail": "24 ms"
+    }
+  ]
+}

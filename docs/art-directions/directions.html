@@ -1,0 +1,40 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Art directions</title>
+<style>
+body{margin:0;background:#222;font:600 15px system-ui;color:#eee;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding:14px}
+figure{margin:0}figcaption{padding:8px 2px}svg{width:100%;display:block;border-radius:10px}
+img.k{position:absolute}
+</style></head><body>
+<!-- A: Cut-paper diorama -->
+<figure><svg viewBox="0 0 640 440">
+<defs>
+ <linearGradient id="aw" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f3dfc1"/><stop offset="1" stop-color="#e7c9a0"/></linearGradient>
+ <filter id="ash" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#6b3e1d" flood-opacity=".35"/></filter>
+ <pattern id="ag" width="6" height="6" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".7" fill="#000" opacity=".05"/></pattern>
+</defs>
+<rect width="640" height="440" fill="url(#aw)"/>
+<g filter="url(#ash)"><rect x="150" y="-20" width="340" height="470" rx="18" fill="#6c4a6e"/>
+<rect x="176" y="40" width="288" height="372" rx="14" fill="#f8ead2"/>
+<rect x="176" y="372" width="288" height="40" rx="6" fill="#c58b55"/></g>
+<rect x="270" y="56" width="100" height="30" rx="8" fill="#2a1d2f"/><text x="320" y="78" fill="#ffb347" font-size="18" text-anchor="middle" font-family="monospace">▲ 1</text>
+<g filter="url(#ash)"><circle cx="320" cy="150" r="30" fill="#f2b98c"/><path d="M288 146 q32-46 64 0 q-6-26-32-26 q-26 0-32 26z" fill="#4a2b1e"/>
+<rect x="290" y="182" width="60" height="110" rx="22" fill="#e85d3f"/><rect x="296" y="286" width="22" height="88" rx="9" fill="#2f3b5c"/><rect x="322" y="286" width="22" height="88" rx="9" fill="#2f3b5c"/></g>
+<rect width="640" height="440" fill="url(#ag)"/>
+<text x="560" y="300" font-size="15" fill="#5a3b2a" text-anchor="middle">warm · tactile</text>
+</svg><figcaption>A · Cut-paper diorama — layered card stock, soft cast shadows, warm grain</figcaption></figure>
+<!-- B: Blueprint lab -->
+<figure><svg viewBox="0 0 640 440">
+<defs><pattern id="bg" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="#3d6fb5" stroke-width=".8"/></pattern></defs>
+<rect width="640" height="440" fill="#123a73"/><rect width="640" height="440" fill="url(#bg)"/>
+<g fill="none" stroke="#e8f1ff" stroke-width="2.5"><rect x="176" y="40" width="288" height="372" rx="4"/><line x1="176" y1="372" x2="464" y2="372"/>
+<circle cx="320" cy="150" r="28"/><rect x="292" y="182" width="56" height="110" rx="14"/><path d="M304 292v82M336 292v82"/><line x1="290" y1="0" x2="290" y2="40"/><line x1="350" y1="0" x2="350" y2="40"/></g>
+<text x="190" y="30" fill="#9fc3ff" font-size="13" font-family="monospace">FIG. 1 — CAB, CABLE, RIDER</text>
+</svg><figcaption>B · Blueprint lab — technical line art; force arrows would fight the blue field</figcaption></figure>
+<!-- C: Retro science poster -->
+<figure><svg viewBox="0 0 640 440">
+<defs><pattern id="ch" width="8" height="8" patternUnits="userSpaceOnUse"><circle cx="4" cy="4" r="1.4" fill="#d9572b" opacity=".35"/></pattern></defs>
+<rect width="640" height="440" fill="#f2e6cf"/><circle cx="520" cy="110" r="150" fill="#f0b43c"/><rect x="0" y="0" width="640" height="440" fill="url(#ch)" opacity=".5"/>
+<rect x="176" y="30" width="288" height="390" fill="#1f6f6b"/><rect x="190" y="44" width="260" height="362" fill="#f2e6cf"/>
+<circle cx="320" cy="150" r="28" fill="#1f2b2a"/><rect x="292" y="182" width="56" height="110" fill="#d9572b"/><rect x="298" y="292" width="18" height="96" fill="#1f2b2a"/><rect x="324" y="292" width="18" height="96" fill="#1f2b2a"/>
+</svg><figcaption>C · Retro science poster — bold flat geometry, halftone, three-ink palette</figcaption></figure>
+</body></html>

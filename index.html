@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Physics Arcade · Free-Body Workshop</title>
+<meta name="description" content="A free-body-diagram game: 152 teacher-written physics situations across three levels.">
+<link rel="stylesheet" href="/src/styles/main.css">
+</head>
+<body>
+<!--
+  Every element id used by the teacher's original engine (src/teacher/fbd-original.js) is kept:
+  lvlsub tabs darkToggle dots ptext sctag sctitle sctext stepper givens checklist magpanel stage scene
+  sceneArt guides arrows axesLayer picker status howto submit clear skip feedback legend teacherPanel
+  jump showSol resetProg selftest done donetitle donetext nextLevel keepGoing
+-->
+<div id="app">
+
+  <!-- ===================== MAIN MENU ===================== -->
+  <section id="menu" class="screen menu" aria-labelledby="menuTitle">
+    <div class="menu-diorama" id="menuStage" aria-hidden="true"></div>
+    <header class="menu-bar">
+      <h1 id="menuTitle" class="logo">
+        <span class="logo-word">Physics</span>
+        <span class="logo-word logo-word--b">Arcade</span>
+        <span class="logo-sub">Free-Body Workshop</span>
+      </h1>
+      <button type="button" class="big-btn" id="continueBtn"><span class="big-btn-k">Continue</span><span class="big-btn-v" id="continueSub">Level 1 · Basics</span></button>
+      <div class="menu-tools">
+        <button type="button" class="chip-btn" id="menuTheme" aria-label="Switch to dark mode"><i class="ic ic-contrast"></i><span>Dark</span></button>
+        <button type="button" class="chip-btn icon-only" id="menuSound" aria-label="Mute sound"><i class="ic ic-audioOn"></i></button>
+        <button type="button" class="chip-btn" id="menuSettings" aria-haspopup="dialog"><i class="ic ic-gear"></i><span>Settings</span></button>
+      </div>
+    </header>
+    <nav class="menu-levels" id="menuLevels" aria-label="Choose a level"></nav>
+    <div class="menu-foot">
+      <p class="menu-note">Three steps for every situation: <b>identify</b> the forces, <b>draw</b> their directions, set their <b>sizes</b>. All levels are open.</p>
+    </div>
+  </section>
+
+  <!-- ===================== GAME ===================== -->
+  <section id="game" class="screen game" hidden aria-label="Free-body diagram practice">
+    <header class="hud">
+      <button type="button" class="hud-btn" id="homeBtn" aria-label="Main menu"><i class="ic ic-home"></i></button>
+      <div class="hud-mark" aria-hidden="true">PA</div>
+      <div class="tabs" id="tabs" role="toolbar" aria-label="Level"></div>
+      <div class="progress" aria-label="First-try mastery">
+        <span class="progress-k">First try</span><div class="dots" id="dots"></div><span id="ptext" class="ptext">0 / 5</span>
+      </div>
+      <div class="hud-tools">
+        <button type="button" class="hud-btn" id="darkToggle" aria-label="Switch to dark mode"><i class="ic ic-contrast"></i></button>
+        <button type="button" class="hud-btn" id="hudSound" aria-label="Mute sound"><i class="ic ic-audioOn"></i></button>
+        <button type="button" class="hud-btn" id="hudSettings" aria-label="Settings" aria-haspopup="dialog"><i class="ic ic-gear"></i></button>
+      </div>
+    </header>
+
+    <main class="play">
+      <section class="brief" aria-live="polite">
+        <div class="brief-head">
+          <span class="tag" id="sctag"></span>
+          <span class="lvlsub" id="lvlsub"></span>
+        </div>
+        <h2 id="sctitle"></h2>
+        <p id="sctext"></p>
+        <div class="givens" id="givens"></div>
+      </section>
+
+      <section class="stage-wrap">
+        <div class="stage" id="stage" tabindex="0" aria-label="Diagram. Drag outward from a black dot to draw a force, or use the keyboard: arrow keys draw, L labels, brackets select.">
+          <div class="pixi-host" id="pixiHost" aria-hidden="true"></div>
+          <svg id="scene" viewBox="0 0 640 440" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+            <g id="sceneArt"></g>
+            <g id="guides"></g>
+            <g id="arrows"></g>
+            <g id="axesLayer"></g>
+          </svg>
+          <div class="picker" id="picker"></div>
+          <div class="stamp" id="stamp" aria-hidden="true">
+            <svg viewBox="0 0 120 120"><circle class="stamp-ring" cx="60" cy="60" r="50"/><path class="stamp-check" d="M36 62 L53 79 L86 42"/></svg>
+          </div>
+          <div class="cine" id="cine" hidden>
+            <div class="cine-legend" id="cineLegend"></div>
+            <div class="cine-bar">
+              <button type="button" class="cine-btn" id="cineReplay"><i class="ic ic-return"></i><span>Replay</span></button>
+              <button type="button" class="cine-btn" id="cineSlow" aria-pressed="false"><i class="ic ic-rewind"></i><span>Slow-mo</span></button>
+              <button type="button" class="cine-btn" id="cineSkip"><i class="ic ic-fastForward"></i><span>Show diagram</span></button>
+            </div>
+          </div>
+          <button type="button" class="replay-fab" id="replayFab" hidden><i class="ic ic-video"></i><span>Watch motion</span></button>
+        </div>
+        <div class="status" id="status" role="status"></div>
+      </section>
+
+      <aside class="tools" aria-label="Tools">
+        <div class="stepper" id="stepper"></div>
+        <div class="tool-body">
+          <div class="checklist" id="checklist" hidden></div>
+          <div class="magpanel" id="magpanel" hidden></div>
+          <div class="feedback" id="feedback" aria-live="polite"></div>
+        </div>
+        <div class="btns">
+          <button class="primary" id="submit"></button>
+          <button id="clear">Clear all</button>
+          <button id="skip">New situation</button>
+        </div>
+        <details class="fold" id="howFold">
+          <summary>How to draw</summary>
+          <ol id="howto"></ol>
+          <p class="kbd-help"><b>Keyboard:</b> focus the picture, then <kbd>←</kbd><kbd>↑</kbd><kbd>→</kbd><kbd>↓</kbd> draw or point an arrow, <kbd>Q</kbd>/<kbd>E</kbd> rotate (Shift = 5°), <kbd>+</kbd>/<kbd>−</kbd> length, <kbd>L</kbd> label, <kbd>[</kbd>/<kbd>]</kbd> select, <kbd>O</kbd> next object, <kbd>Delete</kbd> remove, <kbd>Enter</kbd> check.</p>
+        </details>
+        <details class="fold" id="legendFold">
+          <summary>Force labels</summary>
+          <ul class="legend" id="legend"></ul>
+        </details>
+      </aside>
+    </main>
+
+    <details class="teacher" id="teacherPanel" hidden>
+      <summary>Teacher preview (prototype only — not access-controlled)</summary>
+      <div>
+        <select id="jump"></select>
+        <button id="showSol">Show a correct diagram</button>
+        <button id="resetProg">Reset progress</button>
+        <span id="selftest"></span>
+      </div>
+    </details>
+  </section>
+
+  <!-- Level complete (ids from the original) -->
+  <div class="overlay" id="done" role="dialog" aria-modal="true" aria-labelledby="donetitle">
+    <div class="box">
+      <div class="done-trophy" aria-hidden="true"><i class="ic ic-trophy"></i></div>
+      <h2 id="donetitle"></h2>
+      <p id="donetext"></p>
+      <div class="btns">
+        <button class="primary" id="nextLevel">Go on</button>
+        <button id="keepGoing">Keep practicing this level</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Settings -->
+  <div class="modal" id="settings" hidden role="dialog" aria-modal="true" aria-labelledby="settingsTitle">
+    <div class="modal-card">
+      <header class="modal-head">
+        <h2 id="settingsTitle">Settings</h2>
+        <button type="button" class="hud-btn" id="settingsClose" aria-label="Close settings"><i class="ic ic-cross"></i></button>
+      </header>
+      <div class="set-grid">
+        <fieldset class="set-group">
+          <legend>Look</legend>
+          <div class="seg" role="radiogroup" aria-label="Theme">
+            <label><input type="radio" name="theme" value="light"><span>Light</span></label>
+            <label><input type="radio" name="theme" value="dark"><span>Dark</span></label>
+            <label><input type="radio" name="theme" value="auto"><span>Match device</span></label>
+          </div>
+          <label class="sw"><input type="checkbox" id="setClassic"><span>Show the teacher's original drawings instead of illustrated scenes</span></label>
+          <label class="sw"><input type="checkbox" id="setContrast"><span>Extra-bold force arrows</span></label>
+        </fieldset>
+        <fieldset class="set-group">
+          <legend>Sound</legend>
+          <label class="sw"><input type="checkbox" id="setSfx"><span>Sound effects</span></label>
+          <label class="rng"><span>Effects volume</span><input type="range" id="setSfxVol" min="0" max="100" step="5"></label>
+          <label class="sw"><input type="checkbox" id="setMusic"><span>Background music (off by default)</span></label>
+          <label class="rng"><span>Music volume</span><input type="range" id="setMusicVol" min="0" max="100" step="5"></label>
+        </fieldset>
+        <fieldset class="set-group">
+          <legend>Motion</legend>
+          <label class="sw"><input type="checkbox" id="setCine"><span>Play a motion replay after a correct diagram</span></label>
+          <label class="sw"><input type="checkbox" id="setLabels"><span>Show separate velocity and acceleration markers</span></label>
+          <label class="sw"><input type="checkbox" id="setReduce"><span>Reduce motion (calmer scenes, no camera moves)</span></label>
+        </fieldset>
+        <fieldset class="set-group">
+          <legend>Progress</legend>
+          <p class="set-note">Progress is saved only in this browser. Resetting clears the first-try counts for all three levels.</p>
+          <button type="button" id="setReset" class="danger">Reset my progress</button>
+        </fieldset>
+      </div>
+      <footer class="modal-foot"><button type="button" class="primary" id="settingsDone">Done</button></footer>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</div>
+<!--TEACHER_SCRIPT-->
+<script type="module" src="/src/main.js"></script>
+</body>
+</html>
