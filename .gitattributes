@@ -1,0 +1,2 @@
+# Keep every file byte-exact (the teacher original and its extracted script are compared byte-for-byte).
+* -text
