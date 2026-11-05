@@ -1,3 +1,6 @@
 node_modules/
 .vite/
 *.log
+screenshots/dev/
+screenshots/sheet-log.txt
+dist/index.html

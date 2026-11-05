@@ -9,6 +9,7 @@ const opt = n => { const i = rest.indexOf(n); return i >= 0 ? rest[i + 1] : null
 mkdirSync(out, { recursive: true });
 const browser = await chromium.launch({ args: ['--use-gl=angle', '--enable-unsafe-swiftshader'] });
 const page = await browser.newPage({ viewport: { width: +(opt('--w') || 1280), height: +(opt('--h') || 860) }, colorScheme: rest.includes('--dark') ? 'dark' : 'light' });
+await page.addInitScript(() => { try { localStorage.setItem('physics-arcade-coach-v1', '1'); } catch { /* blocked */ } });
 const errors = [];
 page.on('pageerror', e => errors.push(String(e)));
 page.on('console', m => { if (m.type() === 'error' || m.type() === 'warning') errors.push(`[${m.type()}] ${m.text()}`); });

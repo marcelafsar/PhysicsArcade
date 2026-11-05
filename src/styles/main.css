@@ -407,3 +407,15 @@ body.dark .pixi-host canvas { filter: brightness(.78) saturate(.92) contrast(1.0
 .level-tag .lt-pips i { width: 10px; height: 10px; border-width: 2px; }
 .level-tag .lt-count { overflow: hidden; text-overflow: ellipsis; }
 @media (min-width: 900px) and (max-height: 900px) { .menu-note { display: none; } }
+
+/* ---------- first-run tutorial ---------- */
+.coach { position: fixed; inset: 0; z-index: 70; }
+.coach-hole { position: fixed; border-radius: 16px; box-shadow: 0 0 0 9999px rgba(28, 18, 30, .62); transition: all .35s cubic-bezier(.3,1.2,.5,1); pointer-events: none; outline: 3px solid var(--mustard); }
+.coach-card { position: fixed; background: var(--card) var(--grain); color: var(--ink); border-radius: 18px; padding: 16px 18px 14px; box-shadow: 0 5px 0 var(--card-edge), 0 30px 60px -20px rgba(0,0,0,.6); transition: top .35s, left .35s; animation: modalIn .35s cubic-bezier(.2,1.3,.4,1); }
+.coach-card h3 { margin: 2px 0 6px; font-family: var(--display); font-size: 21px; }
+.coach-card p { margin: 0 0 12px; font-size: 15px; }
+.coach-n { font-size: 12px; font-weight: 700; color: var(--ink-3); letter-spacing: .1em; }
+.coach-btns { display: flex; justify-content: flex-end; gap: 8px; }
+.coach-btns button { --cap: var(--card); --cap-edge: var(--card-edge); --cap-ink: var(--ink); display: inline-flex; align-items: center; padding: .5em 1em; border-radius: 11px; font-weight: 700; background: var(--cap); color: var(--cap-ink); box-shadow: 0 0 0 1.5px var(--cap-edge) inset, 0 3px 0 var(--cap-edge); }
+.coach-btns button.primary { --cap: var(--tomato); --cap-edge: var(--tomato-d); --cap-ink: #fff; }
+.set-row { display: flex; gap: 8px; flex-wrap: wrap; }

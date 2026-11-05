@@ -32,6 +32,7 @@ async function open(url, viewport = { width: 1366, height: 768 }, opts = {}) {
   page.on('pageerror', e => page.errors.push(String(e)));
   page.on('console', m => { if (m.type() === 'error') page.errors.push(m.text()); });
   page.on('requestfailed', r => page.failed.push(r.url().slice(0, 80)));
+  if (!opts.coach) await ctx.addInitScript(() => { try { localStorage.setItem('physics-arcade-coach-v1', '1'); } catch { /* blocked */ } });
   if (opts.offline) await ctx.route('**/*', r => /^(file|data|blob):/.test(r.request().url()) ? r.continue() : r.abort());
   await page.goto(url);
   return page;
@@ -225,6 +226,24 @@ ok('keyboard: Q / Shift+Q rotate by 1° / 5°', await page.evaluate(a => arrows[
 await page.keyboard.press('Delete');
 ok('keyboard: Delete removes the selected arrow', await page.evaluate(() => arrows.length === 0));
 
+/* first-run tutorial */
+const cp = await open(gameUrl, { width: 1366, height: 768 }, { coach: true });
+await ready(cp); await cp.click('.level-tag[data-level="1"]'); await cp.waitForTimeout(900);
+ok('tutorial appears on first entry to the game', await cp.evaluate(() => !!document.querySelector('.coach')));
+await cp.screenshot({ path: `${SHOTS}/tutorial.png` });
+for (let k = 0; k < 4; k++) { await cp.click('.coach-next'); await cp.waitForTimeout(250); }
+ok('tutorial can be stepped through and closes', await cp.evaluate(() => !document.querySelector('.coach')));
+await cp.click('#hudSettings'); await cp.click('#setTutorial'); await cp.waitForTimeout(600);
+ok('tutorial can be replayed from Settings', await cp.evaluate(() => !!document.querySelector('.coach')));
+await cp.click('.coach-skip');
+ok('tutorial: no page errors', cp.errors.length === 0, cp.errors.join(' | '));
+await cp.close();
+
+/* audio assets decode (Kenney OGG samples) */
+await page.evaluate(() => window.__arcade.showMenu()); await page.click('#menuSound'); await page.click('#menuSound');
+const decoded = await page.evaluate(async () => { await window.__arcade.Sound.ready(); return window.__arcade.Sound.loaded(); });
+ok('Kenney sound samples decode in the browser', decoded >= 40, `${decoded} samples decoded`);
+
 /* ---------------- 7. visuals across viewports & themes ---------------- */
 group('7. Viewports, themes, rendering');
 const VIEWS = [['desktop', 1366, 768], ['laptop', 1280, 720], ['tablet', 768, 1024], ['phone', 390, 844]];
@@ -250,6 +269,7 @@ for (const dark of [false, true]) for (const [name, w, h] of VIEWS) {
 
 /* every scene builds without errors and without falling back to old art */
 const fallbacks = await page.evaluate(async () => {
+  window.__arcade.showGame();
   const out = [];
   for (const o of [...document.querySelectorAll('#jump option')]) {
     const j = document.getElementById('jump'); j.value = o.value; j.dispatchEvent(new Event('change'));

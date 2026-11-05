@@ -147,7 +147,8 @@ export const Sound = {
       stop() { g.gain.setTargetAtTime(0.0001, ctx.currentTime, .1); s.stop(ctx.currentTime + .6); }
     };
   },
-  ready: () => loading
+  ready: () => loading,
+  loaded: () => buffers.size
 };
 
 /* Optional background music: a gentle generative marimba loop in C major pentatonic.

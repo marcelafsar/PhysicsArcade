@@ -1,5 +1,5 @@
 /* The gameplay stage: a PixiJS canvas under the engine's precise SVG force overlay.
-   Both share the teacher's 640 × 440 world: the SVG uses viewBox + "meet", and the
+   Both share the teacher's 640 × 440 world: the SVG uses viewBox (−30 −12 700 464) + "meet", and the
    Pixi world container applies the same uniform scale and centring, so every centre
    of mass, rope and surface lines up with the arrows at any screen size. */
 import { Application, Container } from 'pixi.js';
@@ -42,7 +42,8 @@ export class GameScene {
   /* ---------- geometry ---------- */
   metrics() {
     const w = Math.max(1, this.host.clientWidth), h = Math.max(1, this.host.clientHeight);
-    const s = Math.min(w / 640, h / 440);
+    // same fit box as the SVG viewBox (the 640 × 440 world plus a small margin for edge labels)
+    const s = Math.min(w / 700, h / 464);
     const vw = w / s, vh = h / s;
     return { w, h, s, view: [320 - vw / 2 - 8, 220 - vh / 2 - 8, vw + 16, vh + 16], res: Math.min(3, s * Math.min(2, window.devicePixelRatio || 1)) };
   }

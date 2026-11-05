@@ -31,7 +31,10 @@ export async function poseTexture(char, pose, res, crop) {
   const [cx, cy] = CELL[pose] || CELL.idle;
   const ch = crop === 'waist' ? 96 : 128;
   const pw = Math.ceil(96 * res), ph = Math.ceil(ch * res);
-  const doc = SHEETS[char].replace(/<svg\b[^>]*>/, `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="${pw}" height="${ph}" viewBox="${cx} ${cy} 96 ${ch}">`);
+  // The sheets wrap every pose in one sheet-wide filter that browsers render as dark smudges
+  // around hands, ears and shoes once a single cell is cropped; the art is crisp without it.
+  const doc = SHEETS[char].replace(/<svg\b[^>]*>/, `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="${pw}" height="${ph}" viewBox="${cx} ${cy} 96 ${ch}">`)
+    .replace(/ filter="url\(#Filter_\d+\)"/g, '');
   const img = new Image();
   img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(doc);
   const p = img.decode().then(() => {

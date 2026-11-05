@@ -1,6 +1,6 @@
 {
-  "when": "2026-11-05T01:11:53.113Z",
-  "total": 96,
+  "when": "2026-11-05T01:30:43.761Z",
+  "total": 101,
   "failed": 0,
   "results": [
     {
@@ -394,6 +394,36 @@
       "detail": ""
     },
     {
+      "group": "6. Touch and keyboard input",
+      "name": "tutorial appears on first entry to the game",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "group": "6. Touch and keyboard input",
+      "name": "tutorial can be stepped through and closes",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "group": "6. Touch and keyboard input",
+      "name": "tutorial can be replayed from Settings",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "group": "6. Touch and keyboard input",
+      "name": "tutorial: no page errors",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "group": "6. Touch and keyboard input",
+      "name": "Kenney sound samples decode in the browser",
+      "pass": true,
+      "detail": "43 samples decoded"
+    },
+    {
       "group": "7. Viewports, themes, rendering",
       "name": "desktop-light: renders the illustrated scene, no horizontal scroll (menu + game)",
       "pass": true,
@@ -577,7 +607,7 @@
       "group": "9. Performance (headless software rendering — a lower bound for real GPUs)",
       "name": "scene switch time",
       "pass": true,
-      "detail": "24 ms"
+      "detail": "27 ms"
     }
   ]
 }

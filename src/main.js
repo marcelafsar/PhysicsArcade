@@ -9,6 +9,7 @@ import { Sound } from './audio.js';
 import { installSettings } from './ui/settings.js';
 import { installKeyboard, resetKeyboard } from './ui/keyboard.js';
 import { buildMenu, refreshMenu, placeTags } from './ui/menu.js';
+import { maybeCoach, startCoach } from './ui/coach.js';
 import { GameScene } from './scene/game-scene.js';
 import { MenuDiorama } from './scene/menu-diorama.js';
 
@@ -39,6 +40,7 @@ function applyLook() {
   body.classList.toggle('reduce-motion', reducedMotion());
   body.classList.toggle('art-pixi', !prefs.classicArt && scene.ok);
   const label = dark ? 'Switch to light mode' : 'Switch to dark mode';
+  $('darkToggle').innerHTML = '<i class="ic ic-contrast" aria-hidden="true"></i>';   // the engine writes emoji text here; keep the icon
   for (const id of ['darkToggle', 'menuTheme']) $(id).setAttribute('aria-label', label);
   $('menuTheme').querySelector('span').textContent = dark ? 'Light' : 'Dark';
   const snd = prefs.sfx ? 'audioOn' : 'audioOff';
@@ -81,6 +83,7 @@ function showGame(level) {
   if (level && level !== T.state.level) globalThis.setLevel(level);   // switching level: fresh situation
   else scene.show(T.sc);                                              // same level: resume where you were
   document.title = `${T.LEVELS[T.state.level].tab} · Physics Arcade`;
+  if (!window.__noCoach) setTimeout(maybeCoach, 450);
 }
 
 buildMenu({
@@ -95,6 +98,7 @@ const settings = installSettings({
   isReduced: reducedMotion
 });
 $('menuSettings').onclick = () => settings.open();
+$('setTutorial').onclick = () => { $('settings').hidden = true; if (!inGame) showGame(null); setTimeout(startCoach, 300); };
 $('hudSettings').onclick = () => settings.open();
 
 /* Keys: while a menu or dialog is up, keep Enter/Delete away from the engine's
@@ -178,7 +182,7 @@ $('tabs').addEventListener('click', e => { if (e.target.closest('button')) Sound
     diorama = new MenuDiorama($('menuStage'), { onLayout: placeTags, onPick: lv => { Sound.play('select'); showGame(lv); } });
     await diorama.init(body.classList.contains('dark'));
   } catch (e) { console.warn('menu diorama unavailable', e); placeTags(null); }
-  window.__arcade = { scene, diorama, T, showGame, showMenu, prefs };   // test hook
+  window.__arcade = { scene, diorama, T, showGame, showMenu, prefs, Sound };   // test hook
   body.classList.add('booted');
   if (location.hash === '#teacher' || location.hash.startsWith('#play')) showGame(+(location.hash.match(/\d/)?.[0]) || T.state.level);
 })();

@@ -1,0 +1,122 @@
+
+1. Teacher content is untouched
+  ✓ src/teacher/fbd-original.js is byte-identical to the teacher script (sha256 f1bd669b7c1cfd17)
+  ✓ built game embeds the teacher script byte-for-byte
+  ✓ teacher original matches its backup copy
+  ✓ scenario counts are 52 / 50 / 50 (152 total) (52/50/50)
+  ✓ every scenario (ids, text, givens, forces, answers, hints, explanations) equals the original at runtime (152 identical)
+  ✓ scenario ids are unique
+
+2. Answer keys and grading
+  ✓ all 152 correct answer keys pass all three graders (152/152)
+  ✓ the engine's own self-test reports no failing keys
+  ✓ wrong answers (missing, reversed, wrong size, extra force, unchecked force) are rejected for every scenario (760 wrong answers rejected)
+
+3. Menu, levels, settings
+  ✓ menu is the first screen; game hidden
+  ✓ three level tags, all enabled
+  ✓ Level 3 opens immediately from the menu ({"level":3,"scLevel":3,"game":true,"tab":"3"})
+  ✓ Level 1 opens immediately from the menu ({"level":1,"scLevel":1,"game":true,"tab":"1"})
+  ✓ Level 2 opens immediately from the menu ({"level":2,"scLevel":2,"game":true,"tab":"2"})
+  ✓ switching levels with the in-game tabs works
+  ✓ Home → Continue resumes the same level
+  ✓ theme toggle switches light/dark
+  ✓ settings dialog opens from the game
+  ✓ setting works: sfxOff
+  ✓ setting works: sfxOn
+  ✓ setting works: vol
+  ✓ setting works: music
+  ✓ setting works: cine
+  ✓ setting works: labels
+  ✓ setting works: reduce
+  ✓ setting works: contrast
+  ✓ setting works: classic
+  ✓ setting works: pixiBack
+  ✓ setting works: themeDark
+  ✓ setting works: themeLight
+  ✓ Escape closes settings
+  ✓ menu sound button toggles mute
+
+4. Play-through: elevator arriving at the lobby (mouse)
+  ✓ mouse: an incomplete answer gets a hint, not a pass
+  ✓ mouse: step 1 accepted (identify)
+  ✓ mouse: two arrows drawn and labelled on the diagram ([["FN",90,3],["Fg",270,3]])
+  ✓ mouse: step 2 accepted (directions)
+  ✓ mouse: step 3 accepted — scenario solved (Now it's correct.To slow your downward motion, the net force must point up, so FN > Fg. The direction of the net force m)
+  ✓ mouse: green check stamp shown
+  ✓ mouse: the retry means it does not count toward mastery
+  ✓ outcome animation starts after the correct answer and hides the arrow overlay
+  ✓ elevator arriving at the lobby: velocity DOWN, acceleration UP (VelocitydownAccelerationup · slowing down)
+  ✓ slow-motion toggles
+  ✓ replay restarts the animation
+  ✓ "Show diagram" ends the animation and restores the arrows
+  ✓ "Watch motion" replay button is offered afterwards
+  ✓ "Watch motion" replays
+  ✓ "Next situation" loads a new situation
+
+5. Elevator trio — motion vs. acceleration
+  ✓ elev-up-speed: velocity up, acceleration up (VelocityupAccelerationup · speeding up)
+  ✓ elev-up-speed: building scrolls down past the car (car moving up) (43)
+  ✓ elev-down-slow: velocity down, acceleration up (VelocitydownAccelerationup · slowing down)
+  ✓ elev-down-slow: building scrolls up past the car (car moving down) (-250)
+  ✓ elev-down-speed: velocity down, acceleration down (VelocitydownAccelerationdown · speeding up)
+  ✓ elev-down-speed: building scrolls up past the car (car moving down) (-43)
+
+6. Touch and keyboard input
+  ✓ touch: an incomplete answer gets a hint, not a pass
+  ✓ touch: step 1 accepted (identify)
+  ✓ touch: two arrows drawn and labelled on the diagram ([["FN",90,3],["Fg",270,3]])
+  ✓ touch: step 2 accepted (directions)
+  ✓ touch: step 3 accepted — scenario solved (Now it's correct.To slow your downward motion, the net force must point up, so FN > Fg. The direction of the net force m)
+  ✓ touch: green check stamp shown
+  ✓ touch: the retry means it does not count toward mastery
+  ✓ touch: no page errors
+  ✓ keyboard: arrow key draws an arrow and opens the label picker ({"step":2,"phase":"draw","n":1,"active":"","status":"Keyboard drawing: arrow keys draw, L labels, [ and ] select, Delete)
+  ✓ keyboard: Enter on a picker choice labels the arrow (without submitting) (Fg)
+  ✓ keyboard: Q / Shift+Q rotate by 1° / 5° (276)
+  ✓ keyboard: Delete removes the selected arrow
+  ✓ tutorial appears on first entry to the game
+  ✓ tutorial can be stepped through and closes
+  ✓ tutorial can be replayed from Settings
+  ✓ tutorial: no page errors
+  ✓ Kenney sound samples decode in the browser (43 samples decoded)
+
+7. Viewports, themes, rendering
+  ✓ desktop-light: renders the illustrated scene, no horizontal scroll (menu + game) (menu true, game true)
+  ✓ desktop-light: no clipped buttons or headings
+  ✓ desktop-light: no console errors or failed requests
+  ✓ laptop-light: renders the illustrated scene, no horizontal scroll (menu + game) (menu true, game true)
+  ✓ laptop-light: no clipped buttons or headings
+  ✓ laptop-light: no console errors or failed requests
+  ✓ tablet-light: renders the illustrated scene, no horizontal scroll (menu + game) (menu true, game true)
+  ✓ tablet-light: no clipped buttons or headings
+  ✓ tablet-light: no console errors or failed requests
+  ✓ phone-light: renders the illustrated scene, no horizontal scroll (menu + game) (menu true, game true)
+  ✓ phone-light: no clipped buttons or headings
+  ✓ phone-light: no console errors or failed requests
+  ✓ desktop-dark: renders the illustrated scene, no horizontal scroll (menu + game) (menu true, game true)
+  ✓ desktop-dark: no clipped buttons or headings
+  ✓ desktop-dark: no console errors or failed requests
+  ✓ laptop-dark: renders the illustrated scene, no horizontal scroll (menu + game) (menu true, game true)
+  ✓ laptop-dark: no clipped buttons or headings
+  ✓ laptop-dark: no console errors or failed requests
+  ✓ tablet-dark: renders the illustrated scene, no horizontal scroll (menu + game) (menu true, game true)
+  ✓ tablet-dark: no clipped buttons or headings
+  ✓ tablet-dark: no console errors or failed requests
+  ✓ phone-dark: renders the illustrated scene, no horizontal scroll (menu + game) (menu true, game true)
+  ✓ phone-dark: no clipped buttons or headings
+  ✓ phone-dark: no console errors or failed requests
+  ✓ all 152 scenes compose with the new art (no fallback to the old drawings)
+  ✓ main page: no console errors during the whole run
+
+8. Offline single-file build
+  ✓ opens from a plain local file with all network access blocked
+  ✓ offline: fonts loaded from the bundle
+  ✓ offline: no console errors
+
+9. Performance (headless software rendering — a lower bound for real GPUs)
+  ✓ outcome animation frame rate measured (60.5 fps (software GL))
+  ✓ scene switch time (27 ms)
+
+101/101 checks passed
+EXIT 0
