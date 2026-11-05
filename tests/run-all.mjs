@@ -90,6 +90,7 @@ ok('wrong answers (missing, reversed, wrong size, extra force, unchecked force) 
 /* ---------------- 3. menu & navigation ---------------- */
 group('3. Menu, levels, settings');
 ok('menu is the first screen; game hidden', await page.evaluate(() => !document.getElementById('menu').hidden && document.getElementById('game').hidden));
+ok('credits shown on the menu: Elizabeth Gauvin (original) and Marcel Afsar (this version)', await page.evaluate(() => { const t = document.querySelector('.menu-bar .credits')?.innerText || ''; return /Original game by\s+Elizabeth Gauvin/.test(t) && /This version by\s+Marcel Afsar/.test(t); }));
 ok('three level tags, all enabled', await page.evaluate(() => [...document.querySelectorAll('.level-tag')].filter(b => !b.disabled).length) === 3);
 for (const lv of [3, 1, 2]) {
   await page.evaluate(() => window.__arcade.showMenu());

@@ -26,10 +26,13 @@
         <span class="logo-sub">Free-Body Workshop</span>
       </h1>
       <button type="button" class="big-btn" id="continueBtn"><span class="big-btn-k">Continue</span><span class="big-btn-v" id="continueSub">Level 1 · Basics</span></button>
-      <div class="menu-tools">
-        <button type="button" class="chip-btn" id="menuTheme" aria-label="Switch to dark mode"><i class="ic ic-contrast"></i><span>Dark</span></button>
-        <button type="button" class="chip-btn icon-only" id="menuSound" aria-label="Mute sound"><i class="ic ic-audioOn"></i></button>
-        <button type="button" class="chip-btn" id="menuSettings" aria-haspopup="dialog"><i class="ic ic-gear"></i><span>Settings</span></button>
+      <div class="menu-side">
+        <div class="menu-tools">
+          <button type="button" class="chip-btn" id="menuTheme" aria-label="Switch to dark mode"><i class="ic ic-contrast"></i><span>Dark</span></button>
+          <button type="button" class="chip-btn icon-only" id="menuSound" aria-label="Mute sound"><i class="ic ic-audioOn"></i></button>
+          <button type="button" class="chip-btn" id="menuSettings" aria-haspopup="dialog"><i class="ic ic-gear"></i><span>Settings</span></button>
+        </div>
+        <p class="credits" aria-label="Credits"><span>Original game by <b>Elizabeth Gauvin</b></span><span>This version by <b>Marcel Afsar</b></span></p>
       </div>
     </header>
     <nav class="menu-levels" id="menuLevels" aria-label="Choose a level"></nav>
@@ -174,6 +177,11 @@
           <legend>Progress</legend>
           <p class="set-note">Progress is saved only in this browser. Resetting clears the first-try counts for all three levels.</p>
           <div class="set-row"><button type="button" id="setTutorial">Replay the tutorial</button><button type="button" id="setReset" class="danger">Reset my progress</button></div>
+        </fieldset>
+        <fieldset class="set-group set-credits">
+          <legend>Credits</legend>
+          <p class="set-note">Original game by <b>Elizabeth Gauvin</b> — all 152 physics situations, answers, hints and explanations.<br>This version by <b>Marcel Afsar</b>.</p>
+          <p class="set-note">Characters, scenery, icons and sound effects by Kenney (kenney.nl, CC0). Fonts: Lexend and Bricolage Grotesque (SIL Open Font License).</p>
         </fieldset>
       </div>
       <footer class="modal-foot"><button type="button" class="primary" id="settingsDone">Done</button></footer>

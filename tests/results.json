@@ -1,6 +1,6 @@
 {
-  "when": "2026-11-05T01:30:43.761Z",
-  "total": 101,
+  "when": "2026-11-05T01:42:23.738Z",
+  "total": 102,
   "failed": 0,
   "results": [
     {
@@ -60,6 +60,12 @@
     {
       "group": "3. Menu, levels, settings",
       "name": "menu is the first screen; game hidden",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "group": "3. Menu, levels, settings",
+      "name": "credits shown on the menu: Elizabeth Gauvin (original) and Marcel Afsar (this version)",
       "pass": true,
       "detail": ""
     },
@@ -307,7 +313,7 @@
       "group": "5. Elevator trio — motion vs. acceleration",
       "name": "elev-down-slow: building scrolls up past the car (car moving down)",
       "pass": true,
-      "detail": "-250"
+      "detail": "-252"
     },
     {
       "group": "5. Elevator trio — motion vs. acceleration",
@@ -319,7 +325,7 @@
       "group": "5. Elevator trio — motion vs. acceleration",
       "name": "elev-down-speed: building scrolls up past the car (car moving down)",
       "pass": true,
-      "detail": "-43"
+      "detail": "-44"
     },
     {
       "group": "6. Touch and keyboard input",
@@ -607,7 +613,7 @@
       "group": "9. Performance (headless software rendering — a lower bound for real GPUs)",
       "name": "scene switch time",
       "pass": true,
-      "detail": "27 ms"
+      "detail": "28 ms"
     }
   ]
 }

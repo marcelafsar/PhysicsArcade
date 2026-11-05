@@ -419,3 +419,13 @@ body.dark .pixi-host canvas { filter: brightness(.78) saturate(.92) contrast(1.0
 .coach-btns button { --cap: var(--card); --cap-edge: var(--card-edge); --cap-ink: var(--ink); display: inline-flex; align-items: center; padding: .5em 1em; border-radius: 11px; font-weight: 700; background: var(--cap); color: var(--cap-ink); box-shadow: 0 0 0 1.5px var(--cap-edge) inset, 0 3px 0 var(--cap-edge); }
 .coach-btns button.primary { --cap: var(--tomato); --cap-edge: var(--tomato-d); --cap-ink: #fff; }
 .set-row { display: flex; gap: 8px; flex-wrap: wrap; }
+
+/* ---------- credits ---------- */
+.menu-side { display: flex; flex-direction: column; align-items: flex-end; gap: 10px; }
+.credits { margin: 0; display: grid; gap: 2px; text-align: right; font-size: 12.5px; color: var(--ink-2); background: color-mix(in srgb, var(--card) 80%, transparent); padding: 7px 12px; border-radius: 10px; box-shadow: 0 2px 0 var(--card-edge); transform: rotate(1deg); }
+.credits b { color: var(--ink); font-weight: 700; }
+.set-credits { grid-column: 1 / -1; }
+@media (max-width: 640px) {
+  .menu-side { align-items: flex-start; }
+  .credits { text-align: left; transform: none; }
+}

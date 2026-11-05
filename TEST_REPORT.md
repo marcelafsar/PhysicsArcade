@@ -15,7 +15,7 @@ This runs `tools/extract-teacher.mjs`, then `vite build`, then `tools/postbuild.
 ```bash
 npm test
 ```
-This runs `tests/run-all.mjs`. **Result: 101/101 checks passed**, exit code 0. The full console
+This runs `tests/run-all.mjs`. **Result: 102/102 checks passed**, exit code 0. The full console
 output is in `tests/last-run.txt` and the machine-readable results in `tests/results.json`.
 
 ```bash
@@ -62,6 +62,7 @@ This captures frames of the motion replays for visual review.
 
 **3. Menu, levels, settings**
 
+- ✓ credits shown on the menu: Elizabeth Gauvin (original) and Marcel Afsar (this version)
 - ✓ menu is the first screen; game hidden
 - ✓ three level tags, all enabled
 - ✓ Level 3 opens immediately from the menu ({"level":3,"scLevel":3,"game":true,"tab":"3"})

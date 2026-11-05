@@ -5,6 +5,14 @@ A free-body-diagram game built around the teacher's **152 original physics situa
 their sizes. After a fully correct diagram, the situation plays out as a short motion replay that
 shows **velocity and acceleration as separate arrows**.
 
+## Credits
+
+- **Original game:** Elizabeth Gauvin, author of *Free Body Diagram Practice* and its 152 physics situations, answers, hints and explanations.
+- **This version:** Marcel Afsar.
+- Characters, scenery, icons and sound effects are by Kenney (kenney.nl, CC0). The fonts are Lexend and Bricolage Grotesque (SIL Open Font License). See `ASSET_PROVENANCE.md`.
+
+The credits appear on the main menu and in Settings → Credits.
+
 ## Play it
 
 Open **`dist/Physics_Arcade.html`** in any modern browser (Chrome, Edge, Firefox, Safari).

@@ -14,6 +14,7 @@
 
 3. Menu, levels, settings
   ✓ menu is the first screen; game hidden
+  ✓ credits shown on the menu: Elizabeth Gauvin (original) and Marcel Afsar (this version)
   ✓ three level tags, all enabled
   ✓ Level 3 opens immediately from the menu ({"level":3,"scLevel":3,"game":true,"tab":"3"})
   ✓ Level 1 opens immediately from the menu ({"level":1,"scLevel":1,"game":true,"tab":"1"})
@@ -58,9 +59,9 @@
   ✓ elev-up-speed: velocity up, acceleration up (VelocityupAccelerationup · speeding up)
   ✓ elev-up-speed: building scrolls down past the car (car moving up) (43)
   ✓ elev-down-slow: velocity down, acceleration up (VelocitydownAccelerationup · slowing down)
-  ✓ elev-down-slow: building scrolls up past the car (car moving down) (-250)
+  ✓ elev-down-slow: building scrolls up past the car (car moving down) (-252)
   ✓ elev-down-speed: velocity down, acceleration down (VelocitydownAccelerationdown · speeding up)
-  ✓ elev-down-speed: building scrolls up past the car (car moving down) (-43)
+  ✓ elev-down-speed: building scrolls up past the car (car moving down) (-44)
 
 6. Touch and keyboard input
   ✓ touch: an incomplete answer gets a hint, not a pass
@@ -116,7 +117,7 @@
 
 9. Performance (headless software rendering — a lower bound for real GPUs)
   ✓ outcome animation frame rate measured (60.5 fps (software GL))
-  ✓ scene switch time (27 ms)
+  ✓ scene switch time (28 ms)
 
-101/101 checks passed
+102/102 checks passed
 EXIT 0
