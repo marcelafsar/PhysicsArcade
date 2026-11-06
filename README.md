@@ -1,5 +1,11 @@
 # Physics Arcade · Free-Body Workshop
 
+> An educational physics game for practicing free-body diagrams: 152 teacher-written situations across three levels, illustrated scenes and motion replays. It runs offline as a single HTML file.
+>
+> Original game by Elizabeth Gauvin. This version by Marcel Afsar.
+
+Built with PixiJS and Vite, using Kenney CC0 art. Topics: `physics` `education` `free-body-diagram` `pixijs` `vite` `game` `javascript` `offline`
+
 A free-body-diagram game built around the teacher's **152 original physics situations**
 (52 Basics · 50 Angles · 50 Systems). Players identify the forces, draw their directions and set
 their sizes. After a fully correct diagram, the situation plays out as a short motion replay that
